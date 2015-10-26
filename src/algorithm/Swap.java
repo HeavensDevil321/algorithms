@@ -67,7 +67,7 @@ public class Swap
         System.out.println("");
         System.out.println("");
         
-        //arraylist swap
+        //swaplist swap in arraylist
         System.out.println("Before swaping swapList:");
         System.out.println("x value: "+arraylist.get(0));
         System.out.println("y value: "+arraylist.get(1));        
@@ -79,6 +79,9 @@ public class Swap
         
 	}
 	
+	/**
+	 * swaps the stored variable(that are static) with a temp
+	 */
 	public void swapStatics()
 	{
 		 int temp;
@@ -87,60 +90,79 @@ public class Swap
 		 y = temp;
 	}
 	
-	 public String swapLocalPar(int x1, int y1)
-	 {
-		 int temp;
-		 temp = x1;
-		 x1 = y1;
-		 y1 = temp;  
-		 
-		 return "x value: " + x1 +","+ "y value: " +y1;
-	 }
-	 
-	 public String swapLocalPar2(int x, int y)
-	 {
-		 
-		 return  swapLocal2();
-	 }
-	 
-	 private String swapLocal2()
-	 {
-		 int temp;
-		 temp = x;
-		 x= y;
-		 y= temp;
-		 
-		 return x+","+y;
-	 }
-	 
-	 public void swapArray(int a[], int index1, int index2)
-	 {
-		 
-		 a[0] = index1;
-		 a[1] = index2;
-		 
-		 int temp = a[0];
-		 a[0] = a[1];
-		 a[1] = temp;
-		 
-	 }
-	 
 	 /**
-	  * swaps the two elements in the arraylist
-	  * @param q
-	  * @param index1
-	  * @param index2
+	  * this swaps the parameter variables
+	  * @param x1
+	  * @param y1
+	  * @return
 	  */
-	 public void swapList(ArrayList<Integer> arraylist, int index1, int index2)
-	 {
-		 index1 = arraylist.get(0);
-		 index2 = arraylist.get(1);
+	public String swapLocalPar(int x1, int y1)
+	{
+		int temp;
+		temp = x1;
+		x1 = y1;
+		y1 = temp;  
 		 
-		 int temp = index1;
-		 index1 = index2;
-		 index2 = temp;
+		return "x value: " + x1 +","+ "y value: " +y1;
+	}
+	 
+	/**
+	 * calls the private method below and uses it to swap 
+	 * like swapLocalPar
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public String swapLocalPar2(int x, int y)
+	{
 		 
-		 arraylist.set(0, index1);
-		 arraylist.set(1, index2);
-	 }
+		return  swapLocal2();
+	}
+	 
+	private String swapLocal2()
+	{
+		int temp;
+		temp = x;
+		x= y;
+		y= temp;
+		 
+		return x+","+y;
+	}
+	 
+	/**
+	 * makes an array and swaps the value in the index
+	 * @param a
+	 * @param index1
+	 * @param index2
+	 */
+	public void swapArray(int a[], int index1, int index2)
+	{
+		 
+		a[0] = index1;
+		a[1] = index2;
+		 
+		int temp = a[0];
+		a[0] = a[1];
+		a[1] = temp;
+		 
+	}
+	 
+	/**
+	 * swaps the two elements in the arraylist
+	 * @param q
+	 * @param index1
+	 * @param index2
+	 */
+	public void swapList(ArrayList<Integer> arraylist, int index1, int index2)
+	{
+		index1 = arraylist.get(0);
+		index2 = arraylist.get(1);
+		 
+		int temp = index1;
+		index1 = index2;
+		index2 = temp;
+		 
+		arraylist.set(0, index1);
+		arraylist.set(1, index2);
+	}
 }
