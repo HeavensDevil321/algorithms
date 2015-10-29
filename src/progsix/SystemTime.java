@@ -23,7 +23,7 @@ public class SystemTime
 		
 		for(int x = 0; x < array1.length; x++)
 		{			
-			int value = (int)Math.random();
+			int value = (int)(Math.random()*100000);
 			array1[x] = value;
 		}
 		
@@ -37,9 +37,21 @@ public class SystemTime
 		
 	}
 	
-	public void bubbleSort(int[] g)
+	public void BubbleSort(int[] g)
 	{
-		
+		for(int x = 0; x < array2.length; x++)
+		{
+			for(int y = 0; y < array2.length; y++)
+			{
+				if(array1[y] < array2[y])
+				{
+					int temp;
+					temp = array1[y];
+					array1[y] = array2[y + 1];
+					array2[y + 1] = temp;
+				}
+			}
+		}
 	}
 	
 	public void getTarget()
