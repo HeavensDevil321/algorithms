@@ -1,6 +1,15 @@
-package algorithm;
+package swap;
 
 import java.util.ArrayList;
+
+/**
+ * This program uses a simple swap program 
+ * algorithm that uses a temp variable.
+ * 
+ * @author German Rivera
+ * @hour 3rd hr.
+ * @Date 10/25/15
+ */
 
 public class Swap 
 {
