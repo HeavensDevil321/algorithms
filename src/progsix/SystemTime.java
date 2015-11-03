@@ -12,9 +12,17 @@ public class SystemTime
 	private int[] array1; //random
 	private int[] array2; //Default
 	
+	public static void main(String[] args) 
+	{
+		int[] x = new int[10000000];
+		SystemTime test = new SystemTime();
+		test.BubbleSort(x);
+	}
+	
+	
 	public SystemTime()
 	{
-		array1 = new int[100000];
+		array1 = new int[10000000];
 		
 		double time1;
 		double time2;
@@ -59,8 +67,31 @@ public class SystemTime
 		return;
 	}
 	
-	public boolean binarySearch()
+	public boolean binarySearch(int[] a, int target)
 	{
-		return false;
+		int left = 0;
+		int right = a.length; 
+		int middle = (left+right)/2;
+		boolean found = false;		
+		while ((!found) && (left <= right))
+		{
+			if (a[middle] == target)
+			{
+				found = true; // or return true ????
+			}			
+		 	else
+		 	{
+		 		if (target < a[middle])
+		 		{
+		 			right = middle - 1;
+		 		}
+		 		else
+		 		{
+		 			left = middle + 1;
+		 			middle = (left + right) / 2;
+		 		}
+		 	}
+		}
+		return false; 
 	}
 }
