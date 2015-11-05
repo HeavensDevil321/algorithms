@@ -3,21 +3,26 @@
  */
 package progsix;
 
+import java.io.*;  
+
 /**
- * @author ggrivera
- *
+ * @author German Rivera
+ * Made an algorithm that takes a lot of random and normal number 
+ * and sorts and checks how long it takes.
+ * Also searches for target with binary search.
  */
 public class SystemTime 
 {
 	private int[] array1; //random
 	private int[] array2; //Default
 	private int target;
+	
 	public static void main(String[] args) 
 	{
 		int[] x = new int[10000000];
 		SystemTime test = new SystemTime();
-		test.BubbleSort(x);
-		test.binarySearch;
+		test.BubbleSortArray1(x);
+	    test.binarySearch(x, 143);
 		
 	}
 	
@@ -54,7 +59,7 @@ public class SystemTime
 		
 		for(int x = 0; x < array2.length; x++)
 		{
-			int value = (int)(Math.random()*10000);
+			int value = g[10000];
 			array2[x] = value;
 		}
 		
@@ -63,21 +68,56 @@ public class SystemTime
 		System.out.println("The time it took"+ (time3 - time4)+ "nanoseconds to build array2");
 	}
 	
-	public void BubbleSort(int[] g)
+	public void BubbleSortArray1(int[] g)
 	{
+		double time5;
+		double time6;
+		
+		time5 = System.nanoTime();
+		
+		for(int x = 0; x < array1.length; x++)
+		{
+			for(int y = 0; y < array1.length; y++)
+			{
+				if(array1[y] < array1[y])
+				{
+					int temp;
+					temp = array1[y];
+					array1[y] = array1[y + 1];
+					array1[y + 1] = temp;
+				}
+			}
+		}
+		
+		time6 = System.nanoTime();
+		
+		System.out.println("It took "+ (time5 - time6)+ "nanoseconds to sort array1");
+	}
+	
+	public void BubbleSortArray2(int[] g)
+	{
+		double time5;
+		double time6;
+		
+		time5 = System.nanoTime();
+		
 		for(int x = 0; x < array2.length; x++)
 		{
 			for(int y = 0; y < array2.length; y++)
 			{
-				if(array1[y] < array2[y])
+				if(array2[y] < array2[y])
 				{
 					int temp;
-					temp = array1[y];
-					array1[y] = array2[y + 1];
+					temp = array2[y];
+					array2[y] = array2[y + 1];
 					array2[y + 1] = temp;
 				}
 			}
 		}
+		
+        time6 = System.nanoTime();
+		
+		System.out.println("It took "+ (time5 - time6)+ "nanoseconds to sort array2");
 	}
 	
 	
@@ -87,6 +127,8 @@ public class SystemTime
 	 */
 	public void setTarget(int target) 
 	{
+		
+		
 		this.target = target;
 	}
 	
@@ -129,7 +171,7 @@ public class SystemTime
 /**
  * I.
  * For the constructor method :
- * What "n" did you choose for the problem and what is O(n)? _______for random _________________for pre-sorted
+ * What "n" did you choose for the problem and what is O(n)? __n^2___for random _________________for pre-sorted
  * What was the time the constructor took to run? t1 = ____________for random _________________for pre-sorted
  * Run the simulation again using using 10 times the number of elements in question 1
  * What was the time the constructor took to run? t2 = ____________for random _________________for pre-sorted
@@ -143,7 +185,7 @@ public class SystemTime
  * What is t2 / t1 and how does it relate to O(n) from question (i)? ____________________
  * -----------------------------------------------------------------------------------------------------------------------------------
  * III.
- * What "n" did you choose for the problem and what is O(n)? ___________________________
+ * What "n" did you choose for the problem and what is O(n)? _________n^2__________
  * What was the time the search took to run? t1 = ____________________________
  * Run the simulation again using using 10 times the number of elements in question 1
  * What was the time the search took to run? t2 = ____________________________
@@ -151,7 +193,7 @@ public class SystemTime
  * -----------------------------------------------------------------------------------------------------------------------------------
  * IV.
  * Based upon the above answers, did the time correspond with the "Big-Oh" calculations for each of the three methods? constructor? 
- * __yes / no______ sorting? _____yes / no_________ searching? ___yes / no__________
+ * yes  sorting? yes  searching? yes
  * 
- * V. Clarify any discrepencies between O(n) theory and what you found in practice:
+ * V. Clarify any discrepancies between O(n) theory and what you found in practice:
  */
