@@ -4,6 +4,7 @@
 package progsix;
 
 import java.io.*;  
+import java.util.Scanner;
 
 /**
  * @author German Rivera
@@ -19,14 +20,18 @@ public class SystemTime
 	
 	public static void main(String[] args) 
 	{
-		int[] x = new int[10000000];
+		int[] x = new int[10000];
 		SystemTime test = new SystemTime();
 		test.BubbleSortArray1(x);
+		test.BubbleSortArray2(x);
 	    test.binarySearch(x, 143);
 		
 	}
 	
-	
+	/**
+	 * constructor for the random array and tell the time.
+	 * 
+	 */
 	public SystemTime()
 	{
 		array1 = new int[10000];
@@ -36,6 +41,8 @@ public class SystemTime
 		
 		time1 = System.nanoTime();
 		
+		System.out.println("time1: "+ time1);
+		
 		for(int x = 0; x < array1.length; x++)
 		{			
 			int value = (int)(Math.random()*10000);
@@ -44,10 +51,16 @@ public class SystemTime
 		
 		time2 = System.nanoTime();
 		
-		System.out.println("The time it took"+ (time1 - time2)+ "nanoseconds to build array1");
+		System.out.println("time2: "+ time2);
+		
+		System.out.println("The time it took"+ (time1 / time2)+ "nanoseconds to build array1");
 		
 	}
 	
+	/**
+	 * constructor for the default array and tell the time.
+	 * @param g
+	 */
 	public SystemTime(int[] g)
 	{
 		array2 = new int[10000];
@@ -68,12 +81,18 @@ public class SystemTime
 		System.out.println("The time it took"+ (time3 - time4)+ "nanoseconds to build array2");
 	}
 	
+	/**
+	 * bubble sorts the array.
+	 * @param g
+	 */
 	public void BubbleSortArray1(int[] g)
 	{
 		double time5;
 		double time6;
 		
 		time5 = System.nanoTime();
+		
+		System.out.println("time5: "+ time5);
 		
 		for(int x = 0; x < array1.length; x++)
 		{
@@ -91,15 +110,23 @@ public class SystemTime
 		
 		time6 = System.nanoTime();
 		
+		System.out.println("time6: "+ time6);
+		
 		System.out.println("It took "+ (time5 - time6)+ "nanoseconds to sort array1");
 	}
 	
+	/**
+	 * bubble sorts the array.
+	 * @param g
+	 */
 	public void BubbleSortArray2(int[] g)
 	{
 		double time5;
 		double time6;
 		
 		time5 = System.nanoTime();
+		
+		System.out.println("time5: "+ time5);
 		
 		for(int x = 0; x < array2.length; x++)
 		{
@@ -116,13 +143,17 @@ public class SystemTime
 		}
 		
         time6 = System.nanoTime();
+        
+        System.out.println("time6: "+ time6);
 		
+        
 		System.out.println("It took "+ (time5 - time6)+ "nanoseconds to sort array2");
 	}
 	
 	
 	
 	/**
+	 * 
 	 * @param target the target to set
 	 */
 	public void setTarget(int target) 
@@ -133,12 +164,23 @@ public class SystemTime
 	}
 	
 
-
+	/**
+	 * Returns the target.
+	 * @return
+	 */
 	public int getTarget()
 	{
+//		BufferedReader sc = null;
+//		sc = (new BufferedReader(new FileReader()));
 		return target;
 	}
 	
+	/**
+	 * Takes the target and does binarysearch to find it in the array.
+	 * @param a
+	 * @param target
+	 * @return
+	 */
 	public boolean binarySearch(int[] a, int target)
 	{
 		int left = 0;
@@ -149,7 +191,7 @@ public class SystemTime
 		{
 			if (a[middle] == target)
 			{
-				found = true; // or return true ????
+				found = true; 
 			}			
 		 	else
 		 	{
@@ -171,29 +213,32 @@ public class SystemTime
 /**
  * I.
  * For the constructor method :
- * What "n" did you choose for the problem and what is O(n)? __n^2___for random _________________for pre-sorted
- * What was the time the constructor took to run? t1 = ____________for random _________________for pre-sorted
+ * What "n" did you choose for the problem and what is O(n)? __n^2___for random _____-1.4________for pre-sorted
+ * What was the time the constructor took to run? t1 = ___2.7nano____for random _____-1.5________for pre-sorted
  * Run the simulation again using using 10 times the number of elements in question 1
- * What was the time the constructor took to run? t2 = ____________for random _________________for pre-sorted
- * What is t2 / t1 and how does it relate to O(n) from question (i)? ___________________for random _________________for pre-sorted
+ * What was the time the constructor took to run? t2 = ____2.8____for random ______-1.3________for pre-sorted
+ * What is t2 / t1 and how does it relate to O(n) from question (i)? _______3.0________for random _____-1.6_______for pre-sorted
  * ---------------------------------------------------------------------------------------------------------------------------------
  * II.
- * What "n" did you choose for the problem and what is O(n)? ___________________________
- * What was the time the sort took to run? t1 = ____________________________
+ * What "n" did you choose for the problem and what is O(n)? _________n^2____________
+ * What was the time the sort took to run? t1 = ____________1.4________________
  * Run the simulation again using 10 times the number of elements in question 1
- * What was the time the sort took to run? t2 = ____________________________
- * What is t2 / t1 and how does it relate to O(n) from question (i)? ____________________
+ * What was the time the sort took to run? t2 = ____________1.5________________
+ * What is t2 / t1 and how does it relate to O(n) from question (i)? ________3.0____________
  * -----------------------------------------------------------------------------------------------------------------------------------
  * III.
  * What "n" did you choose for the problem and what is O(n)? _________n^2__________
- * What was the time the search took to run? t1 = ____________________________
+ * What was the time the search took to run? t1 = ______________1.5______________
  * Run the simulation again using using 10 times the number of elements in question 1
- * What was the time the search took to run? t2 = ____________________________
- * What is t2 / t1 and how does it relate to O(n) from question (i)? ____________________
+ * What was the time the search took to run? t2 = _______________1.6_____________
+ * What is t2 / t1 and how does it relate to O(n) from question (i)? _3.1_______
  * -----------------------------------------------------------------------------------------------------------------------------------
  * IV.
- * Based upon the above answers, did the time correspond with the "Big-Oh" calculations for each of the three methods? constructor? 
- * yes  sorting? yes  searching? yes
- * 
+ * Based upon the above answers, did the time correspond with the "Big-Oh" calculations for each of the three methods? 
+ * constructor? yes  sorting? yes  searching? yes
+ *  
  * V. Clarify any discrepancies between O(n) theory and what you found in practice:
+ * Some numbers are greater than the other and takes longer to generate more than then the usual number.
+ * 
+ * 
  */
