@@ -46,7 +46,7 @@ public class FileTester
           BufferedWriter out = null;
           try {
               out = new BufferedWriter(new FileWriter(fileOutputName));
-              out.write(Double.toString(3.141592)+'\n'); //added an end-of-line character
+              out.write(Double.toString(3.141592)+'\n'); // added an end-of-line character
               out.write(Integer.toString(7));            // so that this line is outputted
               out.write("help");                         // on the next line.
               out.close();
