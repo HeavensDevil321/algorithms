@@ -1,4 +1,4 @@
-package progsix;
+package progseven;
 
 /** Example of Java console I/O using Scanner class */
 

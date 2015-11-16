@@ -1,4 +1,4 @@
-package progsix;
+package progseven;
 
 /** Example of Java File I/O using Scanner class */
 import java.io.File;
@@ -14,8 +14,8 @@ public class FileTester
 {           
      public static void main(String[] args) 
      {           
-          String fileInputName  = "testReadData.txt";
-          String fileOutputName = "testWriteData.txt";
+          String fileInputName  = "Data.txt";
+          String fileOutputName = "Data.txt";
           Scanner sc = null;           
           try 
           {

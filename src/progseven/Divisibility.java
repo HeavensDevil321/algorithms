@@ -1,6 +1,5 @@
 package progseven;
 
-import java.util.Scanner;
 import java.io.*;
 
 /**
