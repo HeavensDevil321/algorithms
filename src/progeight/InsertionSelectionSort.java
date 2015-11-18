@@ -57,7 +57,7 @@ public class InsertionSelectionSort
         }
         return arr;
     }
-
+//NOTE M's site has some code but hobbled
 	
 //	public boolean selectionSort(Comparable<Integer> A[])
 //	{
