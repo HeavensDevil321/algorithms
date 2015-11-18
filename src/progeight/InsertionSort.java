@@ -4,6 +4,8 @@
 package progeight;
 
 import java.util.ArrayList;
+
+
 /**
  * @author ggrivera
  * @Date 11/23/2015
@@ -13,31 +15,31 @@ public class InsertionSort
 	private Integer[] array;
 	private static ArrayList<Integer> list;
 	
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) 
 	{
 		
 	}
-	//BufferReader out;
-	//out = new BufferReader(new FileReader("data.txt"));
-	//out.write(Integer.toString
-	public void Insertionsort(Integer[] array)
-	{
-		
-	}
 	
-	public InsertionSort(ArrayList<Integer> list)
+	public void insertionSort(Comparable[] A)
 	{
-		list = new ArrayList<Integer>();
-		
+		for (int currentSorted = 1; currentSorted < A.length -1; currentSorted++)
+		{
+			int nextElement = (int) A[currentSorted];
+			int compareI = currentSorted-1;
+			
+			while ((compareI > 0))
+			{
+				A[compareI] = A[compareI-1];
+				compareI--;
+			}
+			
+			A[compareI] = nextElement;
+		}
 	}
+	//&& (A[compareI] > nextElement)
 	
-	public String toString()
-	{
-		return null;
-		
-	}
 
 }
+    //BufferReader out;
+	//out = new BufferReader(new FileReader("data.txt"));
+	//out.write(Integer.toString
