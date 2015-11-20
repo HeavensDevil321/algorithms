@@ -1,7 +1,10 @@
 package progeight;
 
+import java.io.FileWriter;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.IOException;
 
 /**
  * @author ggrivera
@@ -9,27 +12,41 @@ import java.util.ArrayList;
  */
 public class InsertionSelectionSort 
 {
-	private Integer[] arr;
+	private static Integer[] arr;
 	private static ArrayList<Integer> list;
 	
 	public static void main(String[] args) 
 	{
+		InsertionSelectionSort sort = new InsertionSelectionSort();
+		
+		sort.createArray();
+		
+		try
+		{
+			sort.print(list, arr, "");
+		}
+		catch (Exception x)
+		{
+			x.printStackTrace();
+		}
 		
 	}
 	
-	public InsertionSelectionSort()
+	public void createArray()
 	{
 		arr = new Integer[100];
 		list = new ArrayList<Integer>(100);
 		
-		for(int i = 0; i < 101; i++)
+		for(int i = 0; i < 100; i++)
 		{
-			arr[i] = new Integer((int)Math.random());
+			int random = (int) (Math.random()*100);
+			arr[i] = random;
 		}
 		
-		for(int i = 0; i < 101; i++)
+		for(int i = 0; i < 100; i++)
 		{
-			list.add((int) Math.random());
+			int random = (int) (Math.random()*100);
+			list.add(i, random);
 		}
 	}
 	
@@ -50,7 +67,7 @@ public class InsertionSelectionSort
 		}
 	}
 	
-	public void selectionSort(Comparable<Integer> arr[])
+	public Comparable<Integer>[] selectionSort(Comparable<Integer> arr[])
 	{
         
         for (int i = 0; i < arr.length - 1; i++)
@@ -74,10 +91,85 @@ public class InsertionSelectionSort
 	
 	public void print(ArrayList a, Comparable b[], String msg) throws Exception
 	{
+		int inLine = 0;
 		
+		BufferReader out;	
+				
 		out = new BufferReader(new FileReader("data.txt"));
-		out.write(Integer.toString() )
-		BufferReader out;		
+		
+		out.write("original arrayL. : ");
+		
+		out.newLine();
+		
+		for(int x= 0; x < a.size(); x++)
+		{
+			out.writer(""+a.size()+ " ");
+			inLine++;
+			
+			if(inLine == 10)
+			{
+				out.newLine();
+				inLine = 0;
+			}
+		}
+		
+		out.newLine();
+		out.write("normal array");
+		out.newLine();
+		
+		
+		for(int x= 0; x < b.length; x++)
+		{
+			out.writer(""+b.length+ " ");
+			inLine++;
+			
+			if(inLine == 10)
+			{
+				out.newLine();
+				inLine = 0;
+			}
+		}
+		
+		insertionSort(list);
+		selectionSort(arr);
+		
+		out.newLine();
+		out.write("sorted array: ");
+		out.newLine();
+		
+		for(int x= 0; x < a.size(); x++)
+		{
+			out.writer(""+a.get(x)+ " ");
+			inLine++;
+			
+			if(inLine == 10)
+			{
+				out.newLine();
+				inLine = 0;
+			}
+		}
+		
+		out.newLine();
+		out.write("sorted array: ");
+		out.newLine();
+		
+		for(int x= 0; x < b.length; x++)
+		{
+			out.writer(""+b[x]+ " ");
+			inLine++;
+			
+			if(inLine == 10)
+			{
+				out.newLine();
+				inLine = 0;
+			}
+		}
+		
+		out.close();
+		
+		
+		
+		
 	}
 //NOTE M's site has some code but hobbled
 
