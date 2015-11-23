@@ -4,10 +4,12 @@ import java.io.FileWriter;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.io.BufferedWriter;
+import java.io.BufferedReader;
 import java.io.IOException;
 
 /**
- * @author ggrivera
+ * @author Germán g. Rivera
+ * @date 11/23/2015
  *
  */
 public class InsertionSelectionSort 
@@ -50,21 +52,44 @@ public class InsertionSelectionSort
 		}
 	}
 	
-	public void insertionSort(ArrayList<Integer> A)
+	public void insertionSort(ArrayList<Integer> a)
 	{
-		for (int currentSorted = 1; currentSorted < A.length -1; currentSorted++)
+		int j, y;
+		
+		for (ArrayList<Integer> currentSorted = 1; currentSorted < a.size() -1; currentSorted++)
 		{
-			int nextElement = (int) A[currentSorted];
-			int compareI = currentSorted-1;
+			ArrayList<Integer> nextElement = list;
+			ArrayList<Integer> compareI = currentSorted-1;
 			
-			while ((compareI > 0))
+			while ((j > 0))
 			{
-				A[compareI] = A[compareI-1];
+				compareI = compareI-1;
 				compareI--;
 			}
 			
-			A[compareI] = nextElement;
+			compareI = nextElement;
 		}
+		
+		
+		
+//		int i,j;    
+//
+//	    for (i = 1; i < a.size(); i++) 
+//		{
+//	        Integer key = new Integer(0, "","");
+//	        key.value = Array.get(i).value;
+//	        key.suit = Array.get(i).suit;
+//	        key.faceValue = Array.get(i).faceValue;
+//	        j = i;
+//	        while((j > 0) && (Array.get(j - 1).value > key.value)) {
+//	            Array.set(j,Array.get(j - 1));
+//	            j--;
+//	        }
+//	        Array.set(j,key);
+//	    }
+		
+		
+		
 	}
 	
 	public Comparable<Integer>[] selectionSort(Comparable<Integer> arr[])
@@ -89,13 +114,13 @@ public class InsertionSelectionSort
         return arr;
     }
 	
-	public void print(ArrayList a, Comparable b[], String msg) throws Exception
+	public void print(ArrayList<Integer> a, Comparable<Integer> b[], String msg) throws Exception
 	{
 		int inLine = 0;
 		
-		BufferReader out;	
+		BufferedWriter out;	
 				
-		out = new BufferReader(new FileReader("data.txt"));
+		out = new BufferedWriter(new FileWriter("data.txt"));
 		
 		out.write("original arrayL. : ");
 		
@@ -103,7 +128,7 @@ public class InsertionSelectionSort
 		
 		for(int x= 0; x < a.size(); x++)
 		{
-			out.writer(""+a.size()+ " ");
+			out.write(""+a.size()+ " ");
 			inLine++;
 			
 			if(inLine == 10)
@@ -115,12 +140,11 @@ public class InsertionSelectionSort
 		
 		out.newLine();
 		out.write("normal array");
-		out.newLine();
-		
+		out.newLine();		
 		
 		for(int x= 0; x < b.length; x++)
 		{
-			out.writer(""+b.length+ " ");
+			out.write(""+b.length+ " ");
 			inLine++;
 			
 			if(inLine == 10)
@@ -139,7 +163,7 @@ public class InsertionSelectionSort
 		
 		for(int x= 0; x < a.size(); x++)
 		{
-			out.writer(""+a.get(x)+ " ");
+			out.write(""+a.get(x)+ " ");
 			inLine++;
 			
 			if(inLine == 10)
@@ -155,7 +179,7 @@ public class InsertionSelectionSort
 		
 		for(int x= 0; x < b.length; x++)
 		{
-			out.writer(""+b[x]+ " ");
+			out.write(""+b[x]+ " ");
 			inLine++;
 			
 			if(inLine == 10)
@@ -163,33 +187,7 @@ public class InsertionSelectionSort
 				out.newLine();
 				inLine = 0;
 			}
-		}
-		
-		out.close();
-		
-		
-		
-		
+		}		
+		out.close();		
 	}
-//NOTE M's site has some code but hobbled
-
-	
-//	public boolean selectionSort(Comparable<Integer> A[])
-//	{
-//		for (int endOfArray = A.length; endOfArray > 0; endOfArray--)
-//		{
-//			int max = (int) A[0]; // start max at first element
-//			int maxIndex = 0;
-//												
-//			for (int i = 0; i < endOfArray; i++)
-//			{
-//				if (A[i] > max) 
-//				{
-//					max = (int) A[i]; maxIndex = i;
-//				}
-//			}		
-//			swap(A,maxIndex,endOfArray);
-//		}
-//		
-//	} 
 }
