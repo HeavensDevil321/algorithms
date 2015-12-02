@@ -10,7 +10,8 @@ import java.io.IOException;
 /**
  * @author Germán g. Rivera
  * @date 11/23/2015
- *
+ * This gives two different arrays that has array and arrayList both will do their own algorithm to 
+ * sort their random numbers.
  */
 public class InsertionSelectionSort 
 {
@@ -34,6 +35,9 @@ public class InsertionSelectionSort
 		
 	}
 	
+	/**
+	 * creates the individual array with random numbers
+	 */
 	public void createArray()
 	{
 		arr = new Integer[100];
@@ -52,68 +56,70 @@ public class InsertionSelectionSort
 		}
 	}
 	
+	/**
+	 * insertion Sort 
+	 * @param a
+	 */
 	public void insertionSort(ArrayList<Integer> a)
 	{
-		int j, y;
-		
-		for (ArrayList<Integer> currentSorted = 1; currentSorted < a.size() -1; currentSorted++)
+
+		for (int currentSorted = 1; currentSorted < a.size(); currentSorted++)
 		{
-			ArrayList<Integer> nextElement = list;
-			ArrayList<Integer> compareI = currentSorted-1;
+			int nextElement = a.get(currentSorted);
+			int compareI;
 			
-			while ((j > 0))
+			for(compareI = currentSorted - 1; compareI >= 0 
+					&& nextElement < a.get(compareI); compareI--)
 			{
-				compareI = compareI-1;
-				compareI--;
+				int test1 = a.get(compareI + 1);
+				int test2 = a.get(compareI);
+				
+				int test3 = test1;
+				test2 = test1;
+				test1 = test3;
+				
+				a.set(compareI+1, test1);
+				a.set(compareI, test2);
 			}
-			
-			compareI = nextElement;
+			a.set(compareI +1, nextElement);
 		}
-		
-		
-		
-//		int i,j;    
-//
-//	    for (i = 1; i < a.size(); i++) 
-//		{
-//	        Integer key = new Integer(0, "","");
-//	        key.value = Array.get(i).value;
-//	        key.suit = Array.get(i).suit;
-//	        key.faceValue = Array.get(i).faceValue;
-//	        j = i;
-//	        while((j > 0) && (Array.get(j - 1).value > key.value)) {
-//	            Array.set(j,Array.get(j - 1));
-//	            j--;
-//	        }
-//	        Array.set(j,key);
-//	    }
-		
-		
-		
 	}
-	
-	public Comparable<Integer>[] selectionSort(Comparable<Integer> arr[])
+
+	/**
+	 * Selection sort picks a number in the array sorts them by size of each 
+	 * number
+	 * @param arr
+	 */
+	public void selectionSort(Comparable<Integer> arr[])
 	{
         
-        for (int i = 0; i < arr.length - 1; i++)
+        for (int i = 0; i < arr.length; i++)
         {
             int index = i;
             
             for (int j = i + 1; j < arr.length; j++)
             {
-                if (arr[j] < arr[index])
+                if ((int)arr[j] < (int)arr[index])
                 {
                     index = j;
                 }
             }
-      
-            int smallerNumber = (int)arr[index]; 
-            arr[index] = arr[i];
-            arr[i] = smallerNumber;
+            if(index != i)
+            {
+	            int smallerNumber = (int)arr[index]; 
+	            arr[index] = arr[i];
+	            arr[i] = smallerNumber;
+            }
         }
-        return arr;
     }
-	
+		
+	/**
+	 * This prints the out put on a data.txt file
+	 * @param a
+	 * @param b
+	 * @param msg
+	 * @throws Exception
+	 */
 	public void print(ArrayList<Integer> a, Comparable<Integer> b[], String msg) throws Exception
 	{
 		int inLine = 0;
@@ -122,7 +128,7 @@ public class InsertionSelectionSort
 				
 		out = new BufferedWriter(new FileWriter("data.txt"));
 		
-		out.write("original arrayL. : ");
+		out.write("original arrayList. : ");
 		
 		out.newLine();
 		
@@ -158,7 +164,7 @@ public class InsertionSelectionSort
 		selectionSort(arr);
 		
 		out.newLine();
-		out.write("sorted array: ");
+		out.write("sorted arrayList: ");
 		out.newLine();
 		
 		for(int x= 0; x < a.size(); x++)

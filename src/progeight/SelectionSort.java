@@ -17,7 +17,7 @@ public class SelectionSort
 	
 	public static void main(String[] args) 
 	{
-		SelectionSort sS = new S
+
 	}
 	
 	public boolean selectionSort(Comparable<Integer> A[])
